@@ -12,12 +12,14 @@
 "}"         { return RBRACE; }
 ";"         { return SEMICOLON; }
 "="         { return ASSIGN; }
-"<"         { return LESS; }
-"++"        { return INCREMENT; }
+"<"         { return LT; }
+">"         { return GT; }
+"+"         { return PLUS; }
 
 [a-zA-Z_][a-zA-Z0-9_]*  { return IDENTIFIER; }
 [0-9]+                  { return NUMBER; }
-[ \t\n\r]+              ; // Skip whitespace
+
+[ \t\n]+                ; // Skip whitespace
 
 .           { printf("Invalid character: %s\n", yytext); }
 
@@ -27,4 +29,3 @@ int yywrap(void)
 {
     return 1;
 }
-
