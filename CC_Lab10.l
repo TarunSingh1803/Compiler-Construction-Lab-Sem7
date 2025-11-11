@@ -1,7 +1,6 @@
 %{
-	//Name: Tarun Kumar Singh,	PRN: 22070521014
 	#include <stdio.h>
-	#include "tarun_cclab10.tab.h"
+	#include "CC_Lab10.tab.h"
 %}
 
 %%
