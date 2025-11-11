@@ -53,6 +53,6 @@ gcc lex.yy.c CC_Lab9.tab.c -lfl
 ```bash
 bison -d CC_Lab10.y
 flex CC_Lab10.l
-gcc lex.yy.c CC_Lab9.tab.c -lfl
+gcc CC_Lab10.tab.c lex.yy.c
 ./a.out
 ```
