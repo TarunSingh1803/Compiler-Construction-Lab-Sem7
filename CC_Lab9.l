@@ -1,6 +1,6 @@
 %{
 	#include <stdio.h>
-	#include "CC_Lab9.h"
+	#include "CC_Lab9.tab.h"
 %}
 
 %%
