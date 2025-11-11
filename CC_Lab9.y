@@ -1,12 +1,11 @@
 %{
 	#include <stdio.h>
 	#include <stdlib.h>
-
-	void yyerror(const char *s);
+	void yyerror(char *s);
 	int yylex(void);
 %}
 
-%token FOR LPARSEN RPARSEN LBRACE RBRACE SEMICOLON ASSIGN LESS INCREMENT IDENTIFIER NUMBER 
+%token FOR LPARSEN RPARSEN LBRACE RBRACE SEMICOLON ASSIGN IDENTIFIER NUMBER LT GT PLUS
 
 %%
 
@@ -20,34 +19,32 @@ for_loop:
 		printf("Valid FOR loop structure\n");
 	}
 	;
-
 initialization:
 	IDENTIFIER ASSIGN NUMBER
 	;
-
 condition:
-	IDENTIFIER LESS NUMBER
+	IDENTIFIER
+	| IDENTIFIER LT NUMBER
+	| IDENTIFIER GT NUMBER
 	;
-
 update:
-	IDENTIFIER INCREMENT
+	IDENTIFIER ASSIGN IDENTIFIER
+	| IDENTIFIER ASSIGN NUMBER
+	| IDENTIFIER ASSIGN IDENTIFIER PLUS NUMBER
+	| IDENTIFIER ASSIGN IDENTIFIER PLUS IDENTIFIER
 	;
-
 body:
 	/* Empty body for simplicity */
 	;
 
 %%
 
-void yyerror(const char *s)
+void yyerror(char *s)
 {
 	fprintf(stderr, "Error: %s\n", s);
 }
 
 int main(void)
 {
-	printf("Enter your input:\n");
-	yyparse();
-	return 0;
+	return yyparse();
 }
-
