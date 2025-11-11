@@ -1,5 +1,5 @@
 %{
-	//Name: Tarun Kumar Singh,	PRN: 22070521014
+
 	#include <stdio.h>
 	#include "y.tab.h"
 %}
