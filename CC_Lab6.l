@@ -1,5 +1,4 @@
 %{
-	//Name: Tarun Kumar Singh,	PRN: 22070521014
 	#include<stdio.h>
 	int line_number = 0;
 %}
